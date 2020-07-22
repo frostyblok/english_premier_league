@@ -4,7 +4,7 @@ module FootballLeagueTable
   WIN = 3
   LOSE = 4
   DRAW = 5
-  FOR = 7
+  FOR = 6
   AGAINST = 8
   PTS = 9
 
@@ -27,16 +27,19 @@ module FootballLeagueTable
 
       league_params = {
         team: team_attribute[TEAM_NAME],
-        played: team_attribute[TEAM_NAME],
-        win: team_attribute[TEAM_NAME],
-        lose: team_attribute[TEAM_NAME],
-        draw: team_attribute[TEAM_NAME],
-        for_goal: team_attribute[TEAM_NAME],
-        against: team_attribute[TEAM_NAME],
-        points: team_attribute[TEAM_NAME]
+        played: team_attribute[PLAYED],
+        win: team_attribute[WIN],
+        lose: team_attribute[LOSE],
+        draw: team_attribute[DRAW],
+        for_goal: team_attribute[FOR],
+        against: team_attribute[AGAINST],
+        points: team_attribute[PTS]
       }
 
       LeagueTable.create!(league_params)
+
+    rescue ActiveRecord::RecordInvalid => e
+      puts "#{e.message}"
     end
   end
 end

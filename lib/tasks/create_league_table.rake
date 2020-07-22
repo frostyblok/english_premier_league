@@ -1,13 +1,12 @@
 require_relative "./task_helpers/football_league_table.rb"
 
-# namespace :league_table do
-  include FootballLeagueTable
-  desc "Create league table"
-  task create_league_table: :environment do
-    puts "Creating league table..."
+include FootballLeagueTable
 
-    create_table
+desc "Create league table"
+task create_league_table: :environment do
+  puts "Creating league table..."
 
-    puts "League table created"
-  end
-# end
+  create_table
+
+  puts "Done!"
+end
