@@ -1,4 +1,8 @@
+require_relative '../../../app/helpers/league_tables_helper'
+
 module FootballLeagueTable
+  include LeagueTablesHelper
+
   TEAM_NAME = 1
   PLAYED = 2
   WIN = 3
@@ -9,10 +13,6 @@ module FootballLeagueTable
   PTS = 9
 
   def create_table
-    base_path = Rails.root.join("lib", "assets")
-    file_content = File.read(base_path.join("football.dat").to_s)
-
-
     file_content.each_line do |row|
       row_array = row.split(' ')
 
