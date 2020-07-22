@@ -1,0 +1,9 @@
+<div class="raw-table">
+	<h1 class="premier-league">Raw Premier League Table</h1>
+	<% @file_content.each_line do |row| %>
+		<div></div>
+		<div><%= row %></div>
+	<% end %>
+</div>
+
+<%= link_to "Go to formatted table", root_path %>

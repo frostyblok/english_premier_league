@@ -1,0 +1,30 @@
+<div class="formatted-table">
+	<h1 class="premier-league">Premier League Football Table</h1>
+
+	<table style="width:100%">
+		<tr>
+			<th>Team</th>
+			<th>P</th>
+			<th>W</th>
+			<th>L</th>
+			<th>D</th>
+			<th>F</th>
+			<th>A</th>
+			<th>Pts</th>
+		</tr>
+		<% @league_table.each do |team| %>
+			<tr style="background: <%= smallest_goal_difference?(id: team.id) ? 'grey' : '' %>;">
+				<td><%= team.id %>. <%= team.team %></td>
+				<td><%= team.played %></td>
+				<td><%= team.win %></td>
+				<td><%= team.lose %></td>
+				<td><%= team.draw %></td>
+				<td><%= team.for_goal %></td>
+				<td><%= team.against %></td>
+				<td><%= team.points %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<%= link_to "Go to raw table", raw_table_path  %>
